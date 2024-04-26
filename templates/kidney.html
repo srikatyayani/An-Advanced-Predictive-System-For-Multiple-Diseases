@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kidney disease prediction</title>
+    <!-- Jquery CDN -->
+    <script src="https://code.jquery.com/jquery-2.2.4.js"
+     integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+     
+     <!-- Font Awesome Link -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <!-- Link css -->
+    <link rel="icon" href="{{ url_for('static', filename='logo.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+     <!-- === Header start === -->
+     <header>
+        <a href="{{url_for('index')}}" class="logo"><img src="{{ url_for('static', filename='logo.png') }}" style="height: 12%;width: 12%;" alt="Logo" title="Logo"></a>
+        <div id="menu-bar" class="fas fa-hamburger"></div>
+        <nav class="navbar">
+            <ul>
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('diabetes') }}">Diabetes</a></li>
+                <li><a href="{{ url_for('heart') }}">Heart Disease</a></li>
+                <li><a href="{{ url_for('liver') }}">Liver Disease</a></li>
+                <li><a href="{{ url_for('cancer') }}">Breast_Cancer Disease</a></li>
+                <li><a href="{{ url_for('kidney') }}">Kidney Disease</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- === Header End === -->
+    <!-- ==== Home Image ==== -->
+    <div style="margin-bottom: 130px;"></div>
+    <span class="title">Kidney Prediction</span>
+
+    <div class="card">
+        <form action="{{ url_for('predict') }}" method="POST">
+            <input class="form-input" type="text" name="age" placeholder="Enter Age" required><br>
+            <input class="form-input" type="text" name="blood pressure" placeholder="Enter blood pressure(mm/Hg)" required><br>
+            <input class="form-input" type="text" name="albumin" placeholder="Enter albumin(0-5) " required><br>
+            <input class="form-input" type="text" name="sugar" placeholder="Enter sugar(0-5)" required><br>
+            <input class="form-input" type="text" name="red blood cell" placeholder="Enter red blood cell(Abnormal-0, Normal-1)" required><br>
+            <input class="form-input" type="text" name="pus cell" placeholder="Enter pus cell(Abnormal-0, Normal-1)" required><br>
+            <input class="form-input" type="text" name="pus cell clumbs" placeholder="Enter pus cell clumbs(Not present-0, Present-1)" required><br>
+            <input class="form-input" type="text" name="bacteria" placeholder="Enter Bacteria(Not present-0, Present-1)" required><br>
+            <input class="form-input" type="text" name="bgr" placeholder="Enter blood glucose random(mgs/dl)" required><br>
+            <input class="form-input" type="text" name="bu" placeholder="Enter blood urea(mgs/dl)" required><br>
+            <input class="form-input" type="text" name="pot" placeholder="Enter potassium(mEq/L)" required><br>
+            <input class="form-input" type="text" name="sc" placeholder="Enter serum creatinine(mgs/dl)" required><br>
+            <input class="form-input" type="text" name="wc" placeholder="Enter White blood cell count" required><br>
+            <input class="form-input" type="text" name="htn" placeholder="Enter Hypertension(yes-1,no-0)" required><br>
+            <input class="form-input" type="text" name="dm" placeholder="Enter Diabetes mellitus(yes-1,no-0)" required><br>
+            <input class="form-input" type="text" name="cad" placeholder="Enter Coronary artery disease(yes-1,no-0)	" required><br>
+            <input class="form-input" type="text" name="pe" placeholder="Enter Peda edema(yes-1,no-0)" required><br>
+            <input class="form-input" type="text" name="ane" placeholder="Enter Anemia(yes-1,no-0)" required><br>
+        <input type="submit" class="my-cta-button" value="predict">
+        </form>
+    </div>
+
+
+
+
+    <!-- ===== Footer ===== -->
+    <!-- Jquery Link -->
+    <script src="{{ url_for('static', filename='main.js') }}"></script>    
+</body>
+</html>
